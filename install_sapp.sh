@@ -32,7 +32,7 @@ rm -fr tmp
 
 # Create empty sap.conf file and fill it with arguments
 echo -e "\n\033[0;34m### Creating sap.conf and populating it\033[0m\n"
-touch .sap/sap.conf
+touch $HOME/.sap/sap.conf
 echo "daemon=1" >> $HOME/.sap/sap.conf
 echo "server=1" >> $HOME/.sap/sap.conf
 echo "addnode=seed1.sappcoin.com" >> $HOME/.sap/sap.conf
@@ -47,7 +47,7 @@ echo "banaddressmempool=SfFQ3twBcziZAHMeULnrDSemaqZqHUpmj4" >> $HOME/.sap/sap.co
 echo "banaddressmempool=SPixuKa8Vnyi6RpcB8XTXh7TBqq6TqZ43b" >> $HOME/.sap/sap.conf
 
 # Install as a service
-cat << EOF > /etc/systemd/system/sap.service
+sudo cat << EOF > /etc/systemd/system/sap.service
 [Unit]
 Description=Sapphire service
 After=network.target
@@ -67,10 +67,10 @@ StartLimitBurst=5
 WantedBy=multi-user.target
 EOF
 
-systemctl start sap.service
-systemctl enable sap.service >/dev/null 2>&1
+sudo systemctl start sap.service
+sudo systemctl enable sap.service >/dev/null 2>&1
 echo -e "\nSAPP Service Status\n"
-systemctl status sap.service
+sudo systemctl status sap.service
 echo -e "\n=======================================================================================================\n"
 
 # Start  Sapphire v1.3.3.2 daemon
