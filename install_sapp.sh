@@ -46,6 +46,9 @@ echo "addnode=seed8.sappcoin.com" >> .sap/sap.conf
 echo "banaddressmempool=SfFQ3twBcziZAHMeULnrDSemaqZqHUpmj4" >> .sap/sap.conf
 echo "banaddressmempool=SPixuKa8Vnyi6RpcB8XTXh7TBqq6TqZ43b" >> .sap/sap.conf
 
+# Install as a service
+
+
 # Start the Sapphire v1.3.3.2 daemon
 echo -e "\n\033[0;34m### Running the daemon. Please wait. This will take 20 seconds.\033[0m\n"
 /usr/local/bin/sapd
