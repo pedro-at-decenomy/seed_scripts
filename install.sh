@@ -35,7 +35,16 @@ echo -e "\n\033[0;34m### Creating sap.conf and populating it\033[0m\n"
 touch .sap/sap.conf
 echo "daemon=1" >> .sap/sap.conf
 echo "server=1" >> .sap/sap.conf
-echo "staking=1" >> .sap/sap.conf
+echo "addnode=seed1.sappcoin.com" >> .sap/sap.conf
+echo "addnode=seed2.sappcoin.com" >> .sap/sap.conf
+echo "addnode=seed3.sappcoin.com" >> .sap/sap.conf
+echo "addnode=seed4.sappcoin.com" >> .sap/sap.conf
+echo "addnode=seed5.sappcoin.com" >> .sap/sap.conf
+echo "addnode=seed6.sappcoin.com" >> .sap/sap.conf
+echo "addnode=seed7.sappcoin.com" >> .sap/sap.conf
+echo "addnode=seed8.sappcoin.com" >> .sap/sap.conf
+echo "banaddressmempool=SfFQ3twBcziZAHMeULnrDSemaqZqHUpmj4" >> .sap/sap.conf
+echo "banaddressmempool=SPixuKa8Vnyi6RpcB8XTXh7TBqq6TqZ43b" >> .sap/sap.conf
 
 # Start the Sapphire v1.3.3.2 daemon
 echo -e "\n\033[0;34m### Running the daemon. Please wait. This will take 20 seconds.\033[0m\n"
