@@ -69,9 +69,6 @@ EOF
 
 sudo systemctl start sap.service
 sudo systemctl enable sap.service >/dev/null 2>&1
-echo -e "\nSAPP Service Status\n"
-sudo systemctl status sap.service
-echo -e "\n=======================================================================================================\n"
 
 # Start  Sapphire v1.3.3.2 daemon
 echo -e "\n\033[0;34m### Running the daemon. Please wait.\033[0m\n"

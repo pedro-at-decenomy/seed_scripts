@@ -6,7 +6,7 @@ clear
 
 # Install wget
 echo -e "\033[0;34m### Installing wget\033[0m\n"
-sudo apt install wget -y
+sudo apt install wget zip unzip -y
 
 # Install wget
 echo -e "\033[0;34m### Bootstrapping\033[0m\n"
