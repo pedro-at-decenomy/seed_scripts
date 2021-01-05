@@ -76,4 +76,4 @@ echo -e "\n\033[0;34m### Running the daemon. Please wait.\033[0m\n"
 # Wait 5 seconds for the daemon starts
 sleep 5
 
-watch /usr/local/bin/sap-cli -conf=/root/.sap/sap.conf -datadir=/root/.sap getinfo
+watch /usr/local/bin/sap-cli -conf=/root/.sap/sap.conf -datadir=/root/.sap getinfo && /usr/local/bin/sap-cli -conf=/root/.sap/sap.conf -datadir=/root/.sap clearbanned
