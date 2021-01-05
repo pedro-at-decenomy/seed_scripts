@@ -35,7 +35,6 @@ echo -e "\n\033[0;34m### Creating sap.conf and populating it\033[0m\n"
 touch .sap/sap.conf
 echo "daemon=1" >> .sap/sap.conf
 echo "server=1" >> .sap/sap.conf
-echo "txindex=1" >> .sap/sap.conf
 echo "staking=1" >> .sap/sap.conf
 
 # Start the Sapphire v1.3.3.2 daemon
