@@ -6,7 +6,7 @@ clear
 
 # Install wget
 echo -e "\033[0;34m### Installing wget\033[0m\n"
-sudo apt install wget
+sudo apt install wget -y
 
 # Create directory for binaries zip file and bootstrap.zip and change directory to it
 mkdir tmp
@@ -47,28 +47,36 @@ echo "banaddressmempool=SfFQ3twBcziZAHMeULnrDSemaqZqHUpmj4" >> .sap/sap.conf
 echo "banaddressmempool=SPixuKa8Vnyi6RpcB8XTXh7TBqq6TqZ43b" >> .sap/sap.conf
 
 # Install as a service
+cat << EOF > /etc/systemd/system/sap.service
+[Unit]
+Description=Sapphire service
+After=network.target
+[Service]
+User=root
+Group=root
+Type=forking
+ExecStart=/usr/local/bin/sapd -daemon -conf=/root/.sap/sap.conf -datadir=/root/.sap
+ExecStop=/usr/local/bin/sap-cli -conf=/root/.sap/sap.conf -datadir=/root/.sap stop
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=10s
+StartLimitInterval=120s
+StartLimitBurst=5
+[Install]
+WantedBy=multi-user.target
+EOF
 
+systemctl start sap.service
+systemctl enable sap.service >/dev/null 2>&1
+echo -e "\nSAPP Service Status\n"
+systemctl status sap.service
+echo -e "\n=======================================================================================================\n"
 
-# Start the Sapphire v1.3.3.2 daemon
-echo -e "\n\033[0;34m### Running the daemon. Please wait. This will take 20 seconds.\033[0m\n"
-/usr/local/bin/sapd
+# Start  Sapphire v1.3.3.2 daemon
+echo -e "\n\033[0;34m### Running the daemon. Please wait.\033[0m\n"
 
-# Wait 20 seconds for the daemon starts
-sleep 20
+# Wait 5 seconds for the daemon starts
+sleep 5
 
-# Send some new lines
-echo -e "\n\n"
-
-# Request a new address with the "label":"stakingAddress1"
-echo -e "\033[0;34m### Creating a new address labeled as 'stakingAddress1'\033[0m\n"
-sap-cli getnewaddress "stakingAddress1"
-
-# Wait 3 seconds
-sleep 3
-
-# Alert user for the stakingAddress1
-STAKING_ADDRESS=$( sap-cli getaddressesbyaccount "stakingAddress1" )
-sleep 3
-echo -e "\n\n\033[0;32mA new address for staking is created:\n\033[0m$STAKING_ADDRESS\n\n"
-
-echo -e "\n\n\033[0;34mPlease send some coins to the address above to start staking\n\033[0m"
+watch /usr/local/bin/sap-cli -conf=/root/.sap/sap.conf -datadir=/root/.sap getinfo
