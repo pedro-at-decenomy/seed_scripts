@@ -13,7 +13,10 @@ echo -e "\033[0;34m### Bootstrapping\033[0m\n"
 sudo systemctl stop sap
 cd .sap
 mv sap.conf ../
+rm ../bootstrap.zip
+mv bootstrap.zip ../
 rm -rf *
+mv ../bootstrap.zip ./
 wget -N https://www.sappexplorer.com/bootstrap.zip
 unzip bootstrap.zip
 mv ../sap.conf ./
