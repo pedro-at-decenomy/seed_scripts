@@ -14,9 +14,8 @@ sudo systemctl stop sap
 cd .sap
 mv sap.conf ../
 rm -rf *
-wget https://www.sappexplorer.com/bootstrap.zip
+wget -N https://www.sappexplorer.com/bootstrap.zip
 unzip bootstrap.zip
-rm bootstrap.zip
 mv ../sap.conf ./
 cd ..
 sudo systemctl start sap
