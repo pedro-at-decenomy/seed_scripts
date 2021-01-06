@@ -60,7 +60,7 @@ echo "addnode=seed8.sappcoin.com" >> $HOME/.sap/sap.conf
 echo "banaddressmempool=SfFQ3twBcziZAHMeULnrDSemaqZqHUpmj4" >> $HOME/.sap/sap.conf
 echo "banaddressmempool=SPixuKa8Vnyi6RpcB8XTXh7TBqq6TqZ43b" >> $HOME/.sap/sap.conf
 #echo "alertnotify=echo %s | mail -s \"Kyanite-testnet alert!\" bedriguler@gmail.com" >> $HOME/.sap/sap.conf
-echo "blocknotify=/usr/local/bin/blocknotify $ID $TICKER $CLI %s" >> $HOME/.sap/sap.conf
+echo "blocknotify=/usr/local/bin/blocknotify.sh $ID $TICKER $CLI" >> $HOME/.sap/sap.conf
 
 
 # Install as a service
