@@ -8,12 +8,9 @@
 # This script takes arguments for coin type and it's properties.			#
 # Arguments:										#
 # $1: Node ID (Example: Sapphire01, Jackpot01, Aezora01 etc.)				#
-# $2: Path to the JSON file that holds COIN properties (Example: /root/sapphire.json)	#
+# $2: Name of the JSON file that holds COIN properties (Example: sapphire.json)		#
 #											#
 #########################################################################################
-
-# Clear the screen
-clear
 
 # Install required softares
 echo -e "\033[0;34m### Installing required packages\033[0m\n"
@@ -21,25 +18,25 @@ sudo apt install wget zip unzip jq curl -y
 
 # Set parameters to variables
 ID=$1
-COIN_PROPERTIES_FILE_PATH=$2
+COIN_PROPERTIES=$( curl -sL https://raw.githubusercontent.com/pedro-at-decenomy/seed_scripts/master/$2 )
 
 # Get COIN properties
-NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Name" | sed 's/\"//g' )
-SHORT_NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".CodeName" | sed 's/\"//g' )
-DESCRIPTION=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Description" | sed 's/\"//g' )
-TICKER=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Ticker" | sed 's/\"//g' )
-LATEST_VERSION=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".LatestVersion" | sed 's/\"//g' )
-DAEMON=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Daemon" | sed 's/\"//g' )
-CLI=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Cli" | sed 's/\"//g' )
-TX=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Tx" | sed 's/\"//g' )
-QT=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Qt" | sed 's/\"//g' )
-DATA_DIR=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".DataDirectory" | sed 's/\"//g' )
-CONF_NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".ConfName" | sed 's/\"//g' )
-PID_NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".PidName" | sed 's/\"//g' )
+NAME=$( echo $COIN_PROPERTIES | jq ".Name" | sed 's/\"//g'  )
+SHORT_NAME=$( echo $COIN_PROPERTIES | jq ".CodeName" | sed 's/\"//g' )
+DESCRIPTION=$( echo $COIN_PROPERTIES | jq ".Description" | sed 's/\"//g' )
+TICKER=$( echo $COIN_PROPERTIES | jq ".Ticker" | sed 's/\"//g' )
+LATEST_VERSION=$( echo $COIN_PROPERTIES | jq ".LatestVersion" | sed 's/\"//g' )
+DAEMON=$( echo $COIN_PROPERTIES | jq ".Daemon" | sed 's/\"//g' )
+CLI=$( echo $COIN_PROPERTIES | jq ".Cli" | sed 's/\"//g' )
+TX=$( echo $COIN_PROPERTIES | jq ".Tx" | sed 's/\"//g' )
+QT=$( echo $COIN_PROPERTIES | jq ".Qt" | sed 's/\"//g' )
+DATA_DIR=$( echo $COIN_PROPERTIES | jq ".DataDirectory" | sed 's/\"//g' )
+CONF_NAME=$( echo $COIN_PROPERTIES | jq ".ConfName" | sed 's/\"//g' )
+PID_NAME=$( echo $COIN_PROPERTIES | jq ".PidName" | sed 's/\"//g' )
 
 # Get bootstrap and latest released binaries links and zip-file names
-BOOTSTRAP_LINK=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Bootstrap" | sed 's/\"//g' )
-BINARIES_LINK=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Binaries" | sed 's/\"//g' )
+BOOTSTRAP_LINK=$( echo $COIN_PROPERTIES | jq ".Bootstrap" | sed 's/\"//g' )
+BINARIES_LINK=$( echo $COIN_PROPERTIES | jq ".Binaries" | sed 's/\"//g' )
 BOOTSTRAP_NAME=$( echo $BOOTSTRAP_LINK | awk -F'/' '{ print $NF }' )
 BINARIES_NAME=$( echo $BINARIES_LINK | awk -F'/' '{ print $NF }' )
 
