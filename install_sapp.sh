@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script assumes either the user is root or it has a sudo permission
+# This script assumes that the user is root and the shell is at root's home
 
 clear
 
