@@ -8,7 +8,7 @@
   "Cli":"sap-cli",
   "Tx":"sap-tx",
   "Qt":"sap-qt",
-  "DataDirectory":".sap",
+  "DataDirectory":"\.sap",
   "ConfName":"sap.conf",
   "PidName":"sap.pid",
   "Bootstrap":"http://sappexplorer.com/bootstrap.zip",
