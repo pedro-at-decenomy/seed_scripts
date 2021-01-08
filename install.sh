@@ -24,22 +24,22 @@ ID=$1
 COIN_PROPERTIES_FILE_PATH=$2
 
 # Get COIN properties
-NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Name" )
-SHORT_NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".CodeName" )
-DESCRIPTION=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Description" )
-TICKER=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Ticker" )
-LATEST_VERSION=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".LatestVersion" )
-DAEMON=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Daemon" )
-CLI=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Cli" )
-TX=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Tx" )
-QT=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Qt" )
-DATA_DIR=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".DataDirectory" )
-CONF_NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".ConfName" )
-PID_NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".PidName" )
+NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Name" | sed 's/\"//g' )
+SHORT_NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".CodeName" | sed 's/\"//g' )
+DESCRIPTION=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Description" | sed 's/\"//g' )
+TICKER=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Ticker" | sed 's/\"//g' )
+LATEST_VERSION=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".LatestVersion" | sed 's/\"//g' )
+DAEMON=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Daemon" | sed 's/\"//g' )
+CLI=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Cli" | sed 's/\"//g' )
+TX=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Tx" | sed 's/\"//g' )
+QT=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Qt" | sed 's/\"//g' )
+DATA_DIR=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".DataDirectory" | sed 's/\"//g' )
+CONF_NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".ConfName" | sed 's/\"//g' )
+PID_NAME=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".PidName" | sed 's/\"//g' )
 
 # Get bootstrap and latest released binaries links and zip-file names
-BOOTSTRAP_LINK=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Bootstrap" )
-BINARIES_LINK=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Binaries" )
+BOOTSTRAP_LINK=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Bootstrap" | sed 's/\"//g' )
+BINARIES_LINK=$( cat $( echo $COIN_PROPERTIES_FILE_PATH ) | jq ".Binaries" | sed 's/\"//g' )
 BOOTSTRAP_NAME=$( echo $BOOTSTRAP_LINK | awk -F'/' '{ print $NF }' )
 BINARIES_NAME=$( echo $BINARIES_LINK | awk -F'/' '{ print $NF }' )
 

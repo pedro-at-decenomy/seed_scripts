@@ -12,9 +12,6 @@
 #                                                                                       #
 #########################################################################################
 
-# Clear the screen
-clear
-
 echo -e "\n\033[0;33m### Please enter node ID (Example: SAPP01)\033[0m\n"
 read -e ID
 
