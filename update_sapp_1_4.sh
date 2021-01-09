@@ -24,3 +24,5 @@ systemctl disable sap
 systemctl stop sapphire
 systemctl enable sapphire
 systemctl start sapphire
+
+watch sapphire-cli getinfo
