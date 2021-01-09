@@ -12,5 +12,5 @@
   "ConfName":"sapphire.conf",
   "PidName":"sapphire.pid",
   "Bootstrap":"http://sappexplorer.com/bootstrap.zip",
-  "Binaries":"https://signal.group/#CjQKII1uCaRPELSjK7sf1dhLenFMgE3jqpiePzJ3javbX31dEhA8rHGk1DL6cuM8XPLEUOya"
+  "Binaries":"https://github.com/sappcoin-com/SAPP/releases/download/v1.4.0.0/SAPP-1.4.0.0-Linux.zip"
 }
