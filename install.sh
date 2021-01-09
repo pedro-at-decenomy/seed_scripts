@@ -22,7 +22,7 @@ COIN_PROPERTIES=$( curl -sL https://raw.githubusercontent.com/pedro-at-decenomy/
 
 # Get COIN properties
 NAME=$( echo $COIN_PROPERTIES | jq ".Name" | sed 's/\"//g'  )
-SHORT_NAME=$( echo $COIN_PROPERTIES | jq ".CodeName" | sed 's/\"//g' )
+SHORT_NAME=$( echo $COIN_PROPERTIES | jq ".ShortName" | sed 's/\"//g' )
 DESCRIPTION=$( echo $COIN_PROPERTIES | jq ".Description" | sed 's/\"//g' )
 TICKER=$( echo $COIN_PROPERTIES | jq ".Ticker" | sed 's/\"//g' )
 LATEST_VERSION=$( echo $COIN_PROPERTIES | jq ".LatestVersion" | sed 's/\"//g' )
