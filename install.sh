@@ -120,4 +120,4 @@ echo -e "\n\033[0;34m### Running the daemon. Please wait.\033[0m\n"
 # Wait 5 seconds for the daemon starts
 sleep 5
 
-watch /usr/local/bin/$CLI -conf=/root/$DATA_DIR/$CONF_NAME -datadir=/root/$DATA_DIR getinfo
+#watch /usr/local/bin/$CLI -conf=/$HOME/$DATA_DIR/$CONF_NAME -datadir=/$HOME/$DATA_DIR getinfo
