@@ -25,4 +25,4 @@ chmod +x sapphire_install_tmp.sh
 ./sapphire_install_tmp.sh $ID "sapphire.json"
 rm -f ./sapphire_install_tmp.sh
 
-watch /usr/local/bin/sap-cli -conf=/root/.sap/sap.conf -datadir=/root/.sap getinfo
+watch /usr/local/bin/sap-cli -conf=/$HOME/.sapphire/sapphire.conf -datadir=/$HOME/.sappphire getinfo
