@@ -99,8 +99,8 @@ After=network.target
 User=root
 Group=root
 Type=forking
-ExecStart=/usr/local/bin/$DAEMON -daemon -conf=/$HOME/$DATA_DIR/$CONF_NAME -datadir=/$HOME/$DATA_DIR
-ExecStop=-/usr/local/bin/$CLI -conf=/$HOME/$DATA_DIR/$CONF_NAME -datadir=/$HOME/$DATA_DIR stop
+ExecStart=/usr/local/bin/$DAEMON -daemon -conf=$HOME/$DATA_DIR/$CONF_NAME -datadir=$HOME/$DATA_DIR
+ExecStop=-/usr/local/bin/$CLI -conf=$HOME/$DATA_DIR/$CONF_NAME -datadir=$HOME/$DATA_DIR stop
 Restart=always
 PrivateTmp=true
 TimeoutStopSec=60s
