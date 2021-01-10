@@ -11,7 +11,7 @@ mkdir .sapphire
 cp .sap/sap.conf .sapphire/sapphire.conf
 sed -i 's/sap-cli/sapphire-cli/g' .sapphire/sapphire.conf
 cd .sapphire
-wget https://www.sappexplorer.com/bootstrap14.zip
+wget https://www.sappexplorer.com/bootstrap.zip
 unzip bootstrap14.zip
 cd ..
 
