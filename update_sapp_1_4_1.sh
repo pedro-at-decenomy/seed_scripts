@@ -1,3 +1,5 @@
+#!/bin/bash
+
 systemctl stop sapphire 
 pkill -9 sapphired
 
