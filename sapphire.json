@@ -3,7 +3,7 @@
   "ShortName":"sapphire",
   "Description":"Sapphire Coin",
   "Ticker":"SAPP",
-  "LatestVersion":"v1.4.0.0",
+  "LatestVersion":"v1.4.1.0",
   "Daemon":"sapphired",
   "Cli":"sapphire-cli",
   "Tx":"sapphire-tx",
@@ -12,5 +12,5 @@
   "ConfName":"sapphire.conf",
   "PidName":"sapphire.pid",
   "Bootstrap":"http://sappexplorer.com/bootstrap.zip",
-  "Binaries":"https://github.com/sappcoin-com/SAPP/releases/download/v1.4.0.0/SAPP-1.4.0.0-Linux.zip"
+  "Binaries":"https://github.com/sappcoin-com/SAPP/releases/download/v1.4.1.0/SAPP-1.4.1.0-Linux.zip"
 }
