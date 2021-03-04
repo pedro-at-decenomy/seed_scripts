@@ -9,6 +9,9 @@ TICKER=$2
 # Third parameter $3 is the JSONRPC cli name
 CLI=$3
 
+# Forth parameter $4 is the API url
+URL=$3
+
 # Get response for "$CLI getinfo"
 INFO=$( $CLI getinfo )
 
@@ -31,4 +34,4 @@ CONNECTIONS=$( echo $INFO | jq ".connections" )
 DIFFICULTY=$( echo $INFO | jq ".difficulty" )
 
 # Execute the POST request
-RESPONSE=$( curl -s --insecure -X POST "https://nodes.572133.club:9099/node" -H  "accept: /" -H  "Content-Type: application/json" -d '{"nodeId":"'$( echo $ID )'","ticker":"'$( echo $TICKER )'","version":"'$( echo $VERSION )'","protocolVersion":"'$( echo $PROTOCOL_VERSION )'","numBlocks":'$( echo $BLOCK_HEIGHT )',"blockHash":"'$( echo $BLOCK_HASH )'","connections":'$( echo $CONNECTIONS )',"difficulty":'$( echo $DIFFICULTY )'}' 2>/dev/null )
+RESPONSE=$( curl -s --insecure -X POST "$(echo $URL)/node" -H  "accept: /" -H  "Content-Type: application/json" -d '{"nodeId":"'$( echo $ID )'","ticker":"'$( echo $TICKER )'","version":"'$( echo $VERSION )'","protocolVersion":"'$( echo $PROTOCOL_VERSION )'","numBlocks":'$( echo $BLOCK_HEIGHT )',"blockHash":"'$( echo $BLOCK_HASH )'","connections":'$( echo $CONNECTIONS )',"difficulty":'$( echo $DIFFICULTY )'}' 2>/dev/null )
