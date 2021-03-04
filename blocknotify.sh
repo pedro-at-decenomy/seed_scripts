@@ -10,7 +10,7 @@ TICKER=$2
 CLI=$3
 
 # Forth parameter $4 is the API url
-URL=$3
+URL=$4
 
 # Get response for "$CLI getinfo"
 INFO=$( $CLI getinfo )
